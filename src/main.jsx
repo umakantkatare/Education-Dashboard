@@ -1,20 +1,20 @@
 /* eslint-disable no-unused-vars */
-import './index.css'
+import "./index.css";
 
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { Toaster } from 'react-hot-toast'
-import { Provider } from 'react-redux'
-import {BrowserRouter} from 'react-router-dom'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
-import App from './App.jsx'
-import store from './store/Store.js'
+import App from "./App.jsx";
+import store from "./store/Store.js";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-  <BrowserRouter>
-    <App />
-    <Toaster/>
-  </BrowserRouter>
-  </Provider>
-)
+    <BrowserRouter>
+      <App />
+      <Toaster />
+    </BrowserRouter>
+  </Provider>,
+);
