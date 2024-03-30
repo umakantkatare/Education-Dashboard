@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
 function App() {
+
+  
   // console.log(import.meta.env.VITE_APPWRITE_URL)
   return (
     <>

@@ -1,9 +1,12 @@
 import React from "react";
 import { FaBars } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Footer from "../components/Footer";
 
 function HomeLayout({ children }) {
+  const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
   return (
     <div className="min-h-screen">
       <div className="drawer drawer-end ">
@@ -37,9 +40,21 @@ function HomeLayout({ children }) {
               <a> Contact Us </a>
             </li>
             <li>
-              <a> About Us </a>
+              <Link to="/about">About us</Link>
             </li>
           </ul>
+          {!isLoggedIn && (
+            <li className="absolute  ">
+              <div className="w-full flex items-center justify-center">
+                <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
+                  <Link to="/login">Login</Link>
+                </button>
+                <button className="btn-secondary px-4 py-1 font-semibold rounded-md w-full">
+                  <Link to="/signup">Signup</Link>
+                </button>
+              </div>
+            </li>
+          )}
         </div>
       </div>
       {children}
