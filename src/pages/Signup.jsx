@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [errorMsg, setErrorMsg] = useState("");
-  const createNewAccount = async (data) => {
+  const createNewAccount = async(data) => {
     setErrorMsg("");
     try {
       const account = await authService?.createAccount(data);
@@ -26,9 +26,9 @@ function Signup() {
       }
     } catch (error) {
       setErrorMsg(error.message);
-      console.log(setErrorMsg)
     }
     
+    console.log(data)
   };
   return (
     <HomeLayout>
@@ -60,7 +60,7 @@ function Signup() {
             type="email"
             placeholder="Enter your email"
             {...register("email", {
-              required: true,
+              required: "Email is required",
               validate: {
                 matchPattern: (value) =>
                   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||

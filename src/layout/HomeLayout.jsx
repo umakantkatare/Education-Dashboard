@@ -43,7 +43,7 @@ function HomeLayout({ children }) {
               <Link to="/about">About us</Link>
             </li>
           </ul>
-          {!isLoggedIn && (
+          {/* {!isLoggedIn && (
             <li className="absolute  ">
               <div className="w-full flex items-center justify-center">
                 <button className="btn-primary px-4 py-1 font-semibold rounded-md w-full">
@@ -54,7 +54,7 @@ function HomeLayout({ children }) {
                 </button>
               </div>
             </li>
-          )}
+          )} */}
         </div>
       </div>
       {children}
