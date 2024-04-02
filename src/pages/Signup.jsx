@@ -12,12 +12,13 @@ function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [errorMsg, setErrorMsg] = useState("");
+
   const createNewAccount = async(data) => {
     setErrorMsg("");
     try {
       const account = await authService?.createAccount(data);
       if (account) {
-        const userData = await authService?.getCurrentUser();
+        const userData = await authService.getCurrentUser("current");
         if (userData) {
           dispatch(login(userData));
           console.log(dispatch)
@@ -30,6 +31,8 @@ function Signup() {
     
     console.log(data)
   };
+
+
   return (
     <HomeLayout>
       {errorMsg && <p className=" text-red-600 flex justify-center items-start ">{errorMsg}</p>}
@@ -96,6 +99,10 @@ function Signup() {
     </div>
     </HomeLayout>
   );
+
+
 }
 
 export default Signup;
+
+
