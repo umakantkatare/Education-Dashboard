@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
+import AppwriteService from "../appwrite/Appwrite";
 import authService from "../appwrite/Auth";
 import HomeLayout from "../layout/HomeLayout";
 import login from "../store/AuthSlice";
@@ -21,7 +22,7 @@ function Signup() {
         const userData = await authService.getCurrentUser("current");
         if (userData) {
           dispatch(login(userData));
-          console.log(dispatch)
+          console.log(userData)
           navigate("/");
         }
       }
@@ -29,6 +30,16 @@ function Signup() {
       setErrorMsg(error.message);
     }
     
+    // try {
+    //   const account = await AppwriteService?.Signup(data)
+    //   if (account) {
+    //     console.log('account create successfully ')
+    //    login(account)
+        
+    //   }
+    // } catch (error) {
+    //   setErrorMsg(error.message);
+    // }
     console.log(data)
   };
 

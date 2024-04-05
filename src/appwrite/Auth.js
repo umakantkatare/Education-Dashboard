@@ -1,6 +1,6 @@
 /* eslint-disable no-unreachable */
 /* eslint-disable no-useless-catch */
-import { Account,Client,Databases,ID,  } from "appwrite";
+import { Account,Client,Databases,ID, Role  } from "appwrite";
 
 import Config from "../config/Config.js";
 
@@ -44,17 +44,12 @@ export class AppwriteService {
         }
     }
 
-    async getCurrentUser() {
+    async getCurrentUser(current) {
         try {
-            const getUser = await this.account.get()
-            if (getUser) {
-                console.log(getUser)
-                return getUser
-            } else {
-               return null 
-            }
-
-        } catch (error) {
+           return await this.account.get(current)
+        
+          } 
+         catch (error) {
             throw error
         }
         return null;

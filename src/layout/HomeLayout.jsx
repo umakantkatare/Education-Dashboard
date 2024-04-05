@@ -62,6 +62,11 @@ function HomeLayout({ children }) {
       <Footer />
     </div>
   );
+
+  // return(
+  //   <>
+  //   </>
+  // )
 }
 
 export default HomeLayout;

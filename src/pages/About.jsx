@@ -1,9 +1,53 @@
 import React from "react";
 
 import aboutMainImage from "../assets/aboutMainImage.png";
+import apj from "../assets/apj.png";
+import billGates from "../assets/billGates.png";
+import einstein from "../assets/einstein.png";
+import nelsonMandela from "../assets/nelsonMandela.png";
+import steveJobs from "../assets/steveJobs.png";
+import CarouselSlide from "../components/CarouselSlide";
 import HomeLayout from "../layout/HomeLayout";
 
 function About() {
+  const celebrities = [
+    {
+      title: "Nelson Mandela",
+      description:
+        "Education is the most powerful tool you can use to change the world.",
+      image: nelsonMandela,
+      slideNumber: 1,
+    },
+    {
+      title: "APJ abdul kalam",
+      description:
+        "Failure will never overtake me if my determination to succeed is strong enough.",
+      image: apj,
+      slideNumber: 2,
+    },
+    {
+      title: "Albert Einstein",
+      description:
+        "A person who never made a mistake never tried anything new.",
+      image: einstein,
+      slideNumber: 3,
+    },
+    {
+      title: "SteveJobs",
+      description:
+        "We don't get a chance to do that many things, and every one should be really excellent.",
+      image: steveJobs,
+      slideNumber: 4,
+    },
+    {
+      title: "Bill Gates",
+      description:
+        "Success is a lousy teacher. It seduces smart people into thinking they can’t lose.",
+      image: billGates,
+      slideNumber: 5,
+    },
+  ];
+
   return (
     <HomeLayout>
       <div className="pl-20 pt-20 flex flex-col text-white">
@@ -22,74 +66,30 @@ function About() {
               </p>
             </section>
           </div>
-          <div>
-            <img src={aboutMainImage} />
-          </div>
-        </div>
-        <div>
-          <div className="carousel w-full ">
-            <div
-              id="slide1"
-              className="carousel-item relative w-full flex flex-col items-center justify-center gap-4 px-[15%]"
-            >
-              <img
-                src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-                className="w-full rounded-full"
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide4" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide2" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide2" className="carousel-item relative w-full">
-              <img
-                src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
-                className="w-full"
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide1" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide3" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-              <img
-                src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
-                className="w-full"
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide2" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide4" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide4" className="carousel-item relative w-full">
-              <img
-                src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
-                className="w-full"
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide3" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide1" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
+          <div className="w-1/2">
+                        <img
+                            id="test1"
+                            style={{
+                                filter: "drop-shadow(0px 10px 10px rgb(0,0,0));"
+                            }}
+                            alt="about main image"
+                            className="drop-shadow-2xl"
+                            src={aboutMainImage}
+                        />
+                    </div>
+          <div className="carousel w-1/2 m-auto my-16">
+            {celebrities &&
+              celebrities.map((celebrity) => (
+                <CarouselSlide
+                  {...celebrity}
+                  key={celebrity.slideNumber}
+                  totalSlide={celebrities.length}
+                />
+              ))}
           </div>
         </div>
       </div>
+      
     </HomeLayout>
   );
 }
